@@ -1,0 +1,325 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #453333;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: "Rochester", cursive;
+    font-weight: 500;
+    font-size: 100px;
+    color: white;
+    z-index: 2;
+}
+
+#hero button {
+    padding: 15px 35px;
+    background-color: transparent;
+    border: 1.3px solid white;
+    font-family: "Times New Roman";
+    margin-top: 90px;
+    font-size: 30px;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+#hero button:hover {
+    background-color: white;
+    color: #b5938d;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    animation: 3s zoomIn;
+    padding: 0;
+}
+
+@keyframes zoomIn {
+    0% {
+        padding: 2%;
+    }
+
+    100% {
+        padding: 0;
+    }
+}
+
+#img-div {
+    flex: 4 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: scrollSlides 38s linear infinite; 
+}
+
+@keyframes scrollSlides {
+    /* --- Initial Pause at Slide 1 (5 seconds) --- */
+    0% {
+        transform: translateX(0%); 
+    }
+    15.15% { 
+        transform: translateX(0%); 
+    }
+    /* --- Scroll to Slide 2 (2 seconds) --- */
+    21.21% { 
+        transform: translateX(-100%); 
+    }
+    /* --- Pause at Slide 2 (5 seconds) --- */
+    36.36% {
+        transform: translateX(-100%); 
+    }
+    /* --- Scroll to Slide 3 (2 seconds) --- */
+    42.42% { 
+        transform: translateX(-200%); 
+    }
+    /* --- Pause at Slide 3 (5 seconds) --- */
+    57.57% { 
+        transform: translateX(-200%); 
+    }
+    /* --- Scroll back to Slide 2 (2 seconds) --- */
+    63.63% { 
+        transform: translateX(-100%); 
+    }
+    /* --- Pause at Slide 2 (5 seconds) --- */
+    78.78% { 
+        transform: translateX(-100%); 
+    }
+    /* --- Scroll back to Slide 1 (2 seconds) --- */
+    84.84% { 
+        transform: translateX(0%); 
+    }
+    /* --- Pause at Slide 1 (5 seconds, which completes the cycle) --- */
+    100% { 
+        transform: translateX(0%); 
+    }
+}
+
+#carousel .slide { 
+    flex-shrink: 0; 
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+#carousel .slide:nth-child(1) {
+    background-image: url(./images/img1.jpg);
+}
+
+#carousel .slide:nth-child(2) {
+    background-image: url(./images/img2.jpg); 
+}
+
+#carousel .slide:nth-child(3) {
+    background-image: url(./images/img3.jpg);
+}
+
+#overlay-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+#content-div {
+    background-color: brown;
+    flex: 3 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#content-div p {
+    color: white;
+    font-size: 22px;
+    font-family: "Times New Roman";
+}
+
+#content-div div {
+    padding: 0 10%;
+    animation: fadeIn 2s;
+}
+
+#menu-btn {
+    background-color: #FC782B;
+}
+
+#reserve-btn {
+    background-color: #EB3455;
+}
+
+#menu-btn, #reserve-btn {
+    border: none;
+    padding: 12px 30px;
+    color: white;
+    font-family: "Times New Roman";
+    font-size: 18px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-flex;
+    transition: background-color 0.4s ease;
+}
+
+.menu-btn-text, .reserve-btn-text {
+    transition: transform 0.4s ease;
+}
+
+.menu-arrow, .reserve-arrow {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, max-width 0.3s ease;
+    margin-left: 8px;
+    max-width: 0;
+}
+
+#menu-btn:hover .menu-btn-text {
+    transform: translateX(-5px);
+}
+
+#reserve-btn:hover .reserve-btn-text {
+    transform: translateX(-5px);
+}
+
+#menu-btn:hover .menu-arrow {
+    max-width: 0.2em;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#reserve-btn:hover .reserve-arrow {
+    max-width: 0.2em;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#menu-btn:hover {
+    background-color: #FD8258;
+}
+
+#reserve-btn:hover {
+    background-color: #FC4B7B;
+}
+
+#container2 {
+    background-color: #093C28;
+    display: flex;
+}
+
+#container3 {
+    background-color: brown;
+    display: flex;
+}
+
+.description {
+    box-sizing: border-box;
+    color: white;
+    font-size: 22px;
+    font-family: "Times New Roman";
+    padding: 0 5%;
+    align-self: center;
+}
+
+#footer {
+    height: 60px;
+    background-color: #78584C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot {
+    font-size: 18px;
+    color: white;
+    font-family: "Times New Roman";
+    transition: color 0.4s ease;
+    cursor: pointer;
+}
+
+.foot:hover {
+    color: #E9CDC3;
+}
+
+.divider {
+    font-size: 18px;
+    color: white;
+    font-family: "Times New Roman";
+}
+
+@keyframes twinkle-animation {
+    0% {
+        color: #E9CDC3;
+    }
+    50% {
+        color: #FC782B;
+    }
+    100% {
+        color: #E9CDC3;
+    }
+}
+
+#register {
+    animation: twinkle-animation 2s infinite alternate;
+}
+
+#hero {
+    z-index: 2;
+    text-align: center;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* starts slightly higher */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* ends in original position */
+    }
+}
+
+@keyframes arrBounce {
+    0% {
+        transform: translateY(0); /* Start at original vertical position */
+    }
+    50% {
+        transform: translateY(30px); /* Move down by 30px (from 10 to 40) */
+    }
+    100% {
+        transform: translateY(0); /* Return to original vertical position */
+    }
+}
+
+#scrollArr {
+    font-size: 80px;
+    color: white;
+    font-family: "Times New Roman";
+    z-index: 2;
+    animation: arrBounce 2s infinite;
+    cursor: pointer;
+}
