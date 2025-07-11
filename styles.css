@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #453333;
+    background-color: #472d2d;
 }
 
 h1 {
@@ -13,6 +13,19 @@ h1 {
     font-size: 100px;
     color: white;
     z-index: 2;
+}
+
+@keyframes moveDown {
+    0% {
+        transform: translateY(-300%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#hero button, #hero h1 {
+    animation: moveDown 2s;
 }
 
 #hero button {
@@ -157,11 +170,18 @@ h1 {
     color: white;
     font-size: 22px;
     font-family: "Times New Roman";
+    animation: moveDown 1.5s forwards, fadeIn 2s forwards;
+    transform: translateY(-300%);
+    opacity: 0;
+    animation-delay: 1s;
 }
 
 #content-div div {
     padding: 0 10%;
-    animation: fadeIn 2s;
+}
+
+#content-div button {
+    animation: popUp 1.5s, fadeIn 2s;
 }
 
 #menu-btn {
@@ -228,11 +248,13 @@ h1 {
 #container2 {
     background-color: #065d6d;
     display: flex;
+    overflow: hidden;
 }
 
 #container3 {
     background-color: #a33347;
     display: flex;
+    overflow: hidden;
 }
 
 .description {
@@ -242,6 +264,8 @@ h1 {
     font-family: "Times New Roman";
     padding: 0 5%;
     align-self: center;
+    box-sizing: border-box;
+    
 }
 
 #footer {
@@ -295,11 +319,9 @@ h1 {
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(-20px); /* starts slightly higher */
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* ends in original position */
     }
 }
 
@@ -315,11 +337,48 @@ h1 {
     }
 }
 
+@keyframes popUp {
+    0% {
+      transform: translateY(3000%); 
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+}
+
 #scrollArr {
     font-size: 80px;
     color: white;
     font-family: "Times New Roman";
     z-index: 2;
-    animation: arrBounce 2s infinite;
+    opacity: 0;
+    animation: arrBounce 2s infinite, popUp 2s, fadeIn 1s forwards;
     cursor: pointer;
+}
+
+.scroll-animate {
+    opacity: 0;
+    transition: transform 0.7s ease, opacity 1.5s ease;
+    will-change: transform, opacity;
+}
+
+.scroll-animate.description {
+    opacity: 0;
+    transition: transform 1.5s ease, opacity 1.5s ease;
+    will-change: transform, opacity;
+}
+
+.scroll-animate.from-left {
+    transform: translateX(-100px);
+}
+
+.scroll-animate.from-right {
+    transform: translateX(100px);
+}
+
+.scroll-animate.visible {
+    transform: translateX(0);
+    opacity: 1;
 }
